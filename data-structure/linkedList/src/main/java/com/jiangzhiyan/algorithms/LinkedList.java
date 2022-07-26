@@ -147,6 +147,9 @@ public class LinkedList<E> implements List<E> {
      */
     @Override
     public E get(int index) {
+        if (index >= size){
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
         return this.node(index).item;
     }
 
@@ -163,7 +166,7 @@ public class LinkedList<E> implements List<E> {
             }
         }else {
             x = end;
-            for (int i = size - 1; i > index; i --){
+            for (int i = size - 1; i > index; i--){
                 x = x.prev;
             }
         }
@@ -185,9 +188,15 @@ public class LinkedList<E> implements List<E> {
         } else {
             Node<E> temp = first;
             System.out.print("目前的列表，头节点：" + first.item + " 尾节点：" + end.item + " 整体：");
-            while (temp != null) {
-                System.out.print(temp.item + ",");
+            while (true) {
+                E item = temp.item;
                 temp = temp.next;
+                if (temp == null){
+                    System.out.println(item);
+                    break;
+                }else {
+                    System.out.print(item + ",");
+                }
             }
         }
     }
