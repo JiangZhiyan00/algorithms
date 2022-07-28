@@ -33,5 +33,6 @@
     </build>
     <modules>
         <module>data-structure</module>
+        <module>leetcode-algorithms</module>
     </modules>
 </project>
